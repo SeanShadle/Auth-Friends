@@ -1,6 +1,7 @@
 import React from 'react';
-
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+
+import {AddFriend} from '../components/AddFriend';
 
 class Friends extends React.Component {
     state = {
@@ -22,6 +23,8 @@ class Friends extends React.Component {
             })
     }
 
+    handleSubmit = friends => this.setState({friends});
+
     render(){
         return (
             <div className="friend">
@@ -38,10 +41,10 @@ class Friends extends React.Component {
                     </div>
                 </div>
                 ))}
-               
+                <AddFriend handleSubmit={this.handleSubmit} />
             </div>
         )
     }
 }
 
-export default Friends
+export default Friends;
